@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="cvsSplitBy" class="java.lang.String">
+        <constructor-arg value= ","/>
+    </bean>
+
+    <bean id="csvFile" class="java.lang.String">
+        <constructor-arg value= "src/main/resources/questions.csv"/>
+    </bean>
+
+    <bean id="currentPerson" class="otus.homework.deft.Person">
+        <property name="firstName" value="DefaultFirstName"/>
+        <property name="lastName" value="DefaultLastName"/>
+    </bean>
+
+    <!--<bean id="scanner" class="java.util.Scanner">-->
+        <!--<constructor-arg index="0"><value type="java.io.InputStream"/></constructor-arg>-->
+    <!--</bean>-->
+
+    <bean id="fileReader" class="java.io.FileReader">
+        <constructor-arg ref="csvFile"/>
+    </bean>
+
+    <bean id="bufferedReader" class="java.io.BufferedReader">
+        <constructor-arg ref="fileReader"/>
+    </bean>
+
+    <bean id="answersService" class="otus.homework.deft.AnswersService">
+        <constructor-arg ref="bufferedReader"/>
+        <property name="currentPerson" ref="currentPerson"/>
+        <property name="csvFile" ref="csvFile"/>
+        <property name="cvsSplitBy" ref="cvsSplitBy"/>
+    </bean>
+
+
+</beans>
