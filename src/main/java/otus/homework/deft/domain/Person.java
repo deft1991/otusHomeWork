@@ -1,7 +1,9 @@
-package otus.homework.deft;
+package otus.homework.deft.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by Sergey Golitsyn (deft) on 27.06.2018
@@ -9,15 +11,21 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Component(value = "basePerson")
 public class Person {
-    // че то забыл что имя что фамилия =)
-    private String firstName;
 
+    private String firstName;
     private String lastName;
+
+    public Person(@Value("${person.defaultFirstName}") String firstName,
+                  @Value("${person.defaultLastName}") String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     private int correctAnswers;
 
-    void incrementCorrectAnswers() {
+    public void incrementCorrectAnswers() {
         correctAnswers++;
     }
 
