@@ -19,7 +19,7 @@ public class Application {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(Application.class);
-        AnswerAnalyzer answerAnalyzer = context.getBean(AnswerService.class);
+        AnswerAnalyzer answerAnalyzer = context.getBean(AnswerAnalyzer.class);
         answerAnalyzer.analyzeAnswer();
     }
 
@@ -31,7 +31,7 @@ public class Application {
     @Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename("/src/main/resources/bundle");
+        messageSource.setBasename("classpath:/bundle");
         messageSource.setDefaultEncoding("UTF-8");
         messageSource.setUseCodeAsDefaultMessage(true);
 

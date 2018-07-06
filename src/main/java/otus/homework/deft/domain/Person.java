@@ -9,8 +9,6 @@ import org.springframework.stereotype.Component;
  * Created by Sergey Golitsyn (deft) on 27.06.2018
  */
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Component(value = "basePerson")
 public class Person {
 

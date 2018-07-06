@@ -12,13 +12,13 @@ repositories {
 }
 
 ext{
-    junit = "4.12"
-    lombok = "1.18.0"
+    junitVersion = "4.12"
+    lombokVersion = "1.18.0"
     springVersion = "5.0.7.RELEASE"
 }
 
 dependencies {
-    testCompile("junit:junit:${junit}")
-    compile("org.projectlombok:lombok:${lombok}")
+    testCompile("junit:junit:${junitVersion}")
+    compile("org.projectlombok:lombok:${lombokVersion}")
     compile("org.springframework:spring-context:${springVersion}")
 }

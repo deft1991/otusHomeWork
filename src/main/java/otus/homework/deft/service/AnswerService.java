@@ -24,6 +24,8 @@ public class AnswerService implements AnswerAnalyzer {
     private final String cvsSplitBy;
     private final QuestionReader questionReader;
     private final MessageSource messageSource;
+    private static final String IS_QUESTION = "Q";
+    private static final String REGEX_SPLITTER = "-";
 
     @Autowired
     public AnswerService(QuestionReader questionReader,
@@ -57,7 +59,7 @@ public class AnswerService implements AnswerAnalyzer {
     }
 
     private void fillPerson(Scanner scanner) {
-        System.out.println(messageSource.getMessage("helloName", new String[0], Locale.forLanguageTag("ru")));
+        System.out.println(messageSource.getMessage("helloName", new String[0], Locale.forLanguageTag("ru-RU")));
         String name = scanner.next();
         if (!StringUtils.isEmpty(name) && !name.equalsIgnoreCase("null")) {
             currentPerson.setFirstName(name);
@@ -70,13 +72,13 @@ public class AnswerService implements AnswerAnalyzer {
     }
 
     private static void someTestLogic(Person currentPerson, Scanner scanner, String[] arrValues, MessageSource messageSource) {
-        if ("Q".equalsIgnoreCase(arrValues[0])) {
+        if (IS_QUESTION.equalsIgnoreCase(arrValues[0])) {
             System.out.println(arrValues[2] + " " + arrValues[3]);
             boolean isIncorrectAnswerFormat = true;
             while (isIncorrectAnswerFormat) {
                 String answer = scanner.next();
-                if (answer.equalsIgnoreCase(arrValues[2].split("-")[0].trim())
-                        || answer.equalsIgnoreCase(arrValues[3].split("-")[0].trim())) {
+                if (answer.equalsIgnoreCase(arrValues[2].split(REGEX_SPLITTER)[0].trim())
+                        || answer.equalsIgnoreCase(arrValues[3].split(REGEX_SPLITTER)[0].trim())) {
                     isIncorrectAnswerFormat = false;
                     String correctAnswer = arrValues[4];
                     if (answer.equalsIgnoreCase(correctAnswer.trim())) {
