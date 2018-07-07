@@ -49,9 +49,9 @@ public class AnswerService implements AnswerAnalyzer {
             someTestLogic(currentPerson, scanner, arrValues, messageSource);
         }
         int luckyPercent = currentPerson.getCorrectAnswers() * 100 / 5;
-        System.out.println("Оу, красава! " + currentPerson.getFirstName()
-                + " " + currentPerson.getLastName()
-                + " твой процент везения = " + luckyPercent);
+//        System.out.println("Оу, красава! " + currentPerson.getFirstName()
+//                + " " + currentPerson.getLastName()
+//                + " твой процент везения = " + luckyPercent);
         System.out.println(messageSource.getMessage("result",
                 new String[]{currentPerson.getFirstName(),
                         currentPerson.getLastName(),
