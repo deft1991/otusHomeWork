@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -49,29 +50,22 @@ public class AnswerService implements AnswerAnalyzer {
 	  someTestLogic(currentPerson, scanner, arrValues, messageSource);
 	}
 	int luckyPercent = currentPerson.getCorrectAnswers() * 100 / 5;
-//        System.out.println("Оу, красава! " + currentPerson.getFirstName()
-//                + " " + currentPerson.getLastName()
-//                + " твой процент везения = " + luckyPercent);
 	System.out.println(messageSource.getMessage("result",
 			new String[]{currentPerson.getFirstName(),
 					currentPerson.getLastName(),
-					String.valueOf(luckyPercent)}, Locale.forLanguageTag("ru-RU")));
+					String.valueOf(luckyPercent)}, Locale.ENGLISH));
   }
 
   private void fillPerson(Scanner scanner) {
-	System.out.println(messageSource.getMessage("helloName", new String[0], Locale.forLanguageTag("ru-RU")));
+	System.out.println(messageSource.getMessage("helloName", new String[0], Locale.ENGLISH));
 	String name = scanner.next();
 	if (!StringUtils.isEmpty(name) && !name.equalsIgnoreCase("null")) {
 	  currentPerson.setFirstName(name);
-	} else {
-
 	}
 	System.out.println(messageSource.getMessage("lastName", new String[0], Locale.ENGLISH));
 	String lastName = scanner.next();
 	if (!StringUtils.isEmpty(lastName) && !lastName.equalsIgnoreCase("null")) {
 	  currentPerson.setLastName(lastName);
-	} else {
-
 	}
   }
 
