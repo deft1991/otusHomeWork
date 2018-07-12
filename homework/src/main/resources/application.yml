@@ -1,0 +1,10 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /api
+
+application:
+  splitter: \,
+  csv: src/main/resources/questions.csv
+  defaultFirstName: DefaultFirstName
+  defaultLastName: DefaultLastName
