@@ -24,11 +24,11 @@ repositories {
 }
 
 ext{
-
+    lombokVersion = "1.18.0"
 }
 
 dependencies {
-    compile('org.projectlombok:lombok')
+    compile("org.projectlombok:lombok:${lombokVersion}")
     compile('org.springframework.boot:spring-boot-starter-aop')
     compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
