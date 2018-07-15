@@ -71,6 +71,7 @@ public class AnswerService implements AnswerAnalyzer {
         }
     }
 
+    @SuppressWarnings("Duplicates")
     private static void someTestLogic(Person currentPerson, Scanner scanner, String[] arrValues, MessageSource messageSource) {
         if (IS_QUESTION.equalsIgnoreCase(arrValues[0])) {
             System.out.println(arrValues[2] + " " + arrValues[3]);
