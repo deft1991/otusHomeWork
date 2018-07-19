@@ -17,21 +17,24 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'ru.deft'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+sourceCompatibility = 1.10
 
 repositories {
     mavenCentral()
 }
 
 ext{
-
+    lombokVersion = "1.18.0"
+    shellVersion = "2.0.1.RELEASE"
 }
 
 dependencies {
-    compile('org.projectlombok:lombok')
+    compile("org.projectlombok:lombok:${lombokVersion}")
     compile('org.springframework.boot:spring-boot-starter-aop')
     compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile("org.springframework.boot:spring-boot-configuration-processor")
+    compile("org.springframework.shell:spring-shell-starter:${shellVersion}")
+
 
 }

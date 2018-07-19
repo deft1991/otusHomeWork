@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module version="4">
+  <component name="ExternalSystem" externalSystem="GRADLE" externalSystemModuleGroup="otusHomeWork" externalSystemModuleType="sourceSet" externalSystemModuleVersion="1.0-SNAPSHOT" linkedProjectId="otusHomeWork:main" linkedProjectPath="$MODULE_DIR$/../.." rootProjectPath="$MODULE_DIR$/../.." />
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration>
@@ -9,5 +10,21 @@
         </fileset>
       </configuration>
     </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/../../out/production/classes" />
+    <content url="file://$MODULE_DIR$/../../src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: org.projectlombok:lombok:1.18.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-context:5.0.7.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-aop:5.0.7.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-beans:5.0.7.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-expression:5.0.7.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-core:5.0.7.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-jcl:5.0.7.RELEASE" level="project" />
   </component>
 </module>

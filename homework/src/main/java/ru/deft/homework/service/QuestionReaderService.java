@@ -1,6 +1,5 @@
 package ru.deft.homework.service;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
@@ -18,27 +17,27 @@ import java.util.Locale;
  */
 @Service
 public class QuestionReaderService implements QuestionReader {
-    private BaseConfiguration baseConfiguration;
-    private MessageSource messageSource;
+  private BaseConfiguration baseConfiguration;
+  private MessageSource messageSource;
 
-    @Autowired
-    public QuestionReaderService(BaseConfiguration baseConfiguration, MessageSource messageSource) {
-        this.baseConfiguration = baseConfiguration;
-        this.messageSource = messageSource;
-    }
+  @Autowired
+  public QuestionReaderService(BaseConfiguration baseConfiguration, MessageSource messageSource) {
+	this.baseConfiguration = baseConfiguration;
+	this.messageSource = messageSource;
+  }
 
-    @Override
-    public List<String> readQuestions() {
-        List<String> questions = new ArrayList<>();
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(baseConfiguration.getCsv()));
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                questions.add(line);
-            }
-        } catch (IOException e) {
-            System.out.println(messageSource.getMessage("errCsvRead", new String[0], Locale.ENGLISH));
-        }
-        return questions;
-    }
+  @Override
+  public List<String> readQuestions() {
+	List<String> questions = new ArrayList<>();
+	try {
+	  BufferedReader bufferedReader = new BufferedReader(new FileReader(baseConfiguration.getCsv()));
+	  String line;
+	  while ((line = bufferedReader.readLine()) != null) {
+		questions.add(line);
+	  }
+	} catch (IOException e) {
+	  System.out.println(messageSource.getMessage("errCsvRead", new String[0], Locale.ENGLISH));
+	}
+	return questions;
+  }
 }
